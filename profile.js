@@ -1,6 +1,7 @@
 const https = require('https');
 const http = require('http');
 
+
 //Function to print message to console
 function printMessage (userName, badgeCount, points) {
    const message = `${userName} has ${badgeCount} in total badge(s) and ${points} points in JavaScript`;
@@ -30,8 +31,6 @@ function get (username) {
                                           } catch (e) {
                                              printError(e);
                                           }
-
-
                                        });
                                     } else {
                                        const message = `There is an error, mather fucker, getting profile for ${username} (${http.STATUS_CODES[response.statusCode]})`
@@ -40,8 +39,8 @@ function get (username) {
                                     }
                                  });
          request.on('error', error => console.error(`You have problem with: ${error.message}`));
-   } catch (e) {
-      printError(e);
+   } catch (error) {
+      printError(error);
    }
 }
 
